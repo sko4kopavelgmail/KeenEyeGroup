@@ -1,16 +1,15 @@
-package Main;
-
+package Manager;
 /**
  * @autor Nikolay Shvedov
  * Класс, реализующий функции команд
  */
-public class Team_development
+public class Manager
 {
-    void help()
+    public void help()
     {
         System.out.print("exit, ex\t - \t Выход из приложения.");
     }
-    void exit()
+    public void exit()
     {
         System.exit(0);
     }

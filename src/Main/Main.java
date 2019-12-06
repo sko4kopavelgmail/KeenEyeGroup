@@ -1,6 +1,8 @@
 package Main;
 
 import java.util.Scanner;
+import Enum.Lessons;
+import Manager.Manager;
 /**
  * @autor Nikolay Shvedov
  */
@@ -11,18 +13,17 @@ public class Main
         System.out.println("Введите команду:");
         Scanner num = new Scanner(System.in);
         String input = num.nextLine();
-        Team_development team = new Team_development();  // Объект класса, реализующего функции команд
-        Exit exit = Exit.exit;
-        Help help = Help.help;
-        if ((input.equals(exit.getExit())) || (input.equals(exit.getEx())))
+        Manager command = new Manager();  // Объект класса, реализующего функции команд
+        Lessons less = null; // Объект enum
+        if ((input.equals(Lessons.exit.getFullname())) || (input.equals(Lessons.exit.getReduction())))
         {
-            System.out.print(exit.getExplanation());
-            team.exit();
+            System.out.print(Lessons.exit.getExplanation());
+            command.exit();
         }
-        else if ((input.equals(help.getHelp())) || (input.equals(help.getHp())))
+        else if ((input.equals(Lessons.help.getFullname())) || (input.equals(Lessons.help.getReduction())))
         {
-            System.out.print(help.getExplanation());
-            team.help();
+            System.out.print(Lessons.help.getExplanation());
+            command.help();
         }
         else
         {
