@@ -1,7 +1,5 @@
 package Enum;
-/**
- * @autor Nikolay Shvedov
- */
+
 public enum Lessons
 {
     exit("exit", "ex", "Выход из приложения"),

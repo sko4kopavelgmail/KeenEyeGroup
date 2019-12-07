@@ -1,16 +1,26 @@
 package Manager;
-/**
- * @autor Nikolay Shvedov
- * Класс, реализующий функции команд
- */
+
+import Enum.Lessons;
+
 public class Manager
 {
-    public void help()
+    public void command_ativation(String command)
     {
-        System.out.print("exit, ex\t - \t Выход из приложения.");
-    }
-    public void exit()
-    {
-        System.exit(0);
+        Team_development teams = new Team_development();  // Объект класса, реализующего функции команд
+        Lessons less = null;
+        if ((command.equals(Lessons.exit.getFullname())) || (command.equals(Lessons.exit.getReduction())))
+        {
+            System.out.println(Lessons.exit.getExplanation());
+            teams.exit();
+        }
+        else if ((command.equals(Lessons.help.getFullname())) || (command.equals(Lessons.help.getReduction())))
+        {
+            System.out.println(Lessons.help.getExplanation());
+            teams.help();
+        }
+        else
+        {
+            System.out.print("Error! '" + command + "' command not found!");
+        }
     }
 }
