@@ -7,6 +7,7 @@ public class Manager
     public void command_ativation(String command)
     {
         Team_development teams = new Team_development();  // Объект класса, реализующего функции команд
+        // TODO: 08.12.2019 зачем?
         Lessons less = null;
         if ((command.equals(Lessons.exit.getFullname())) || (command.equals(Lessons.exit.getReduction())))
         {
