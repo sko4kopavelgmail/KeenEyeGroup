@@ -4,23 +4,31 @@ import Enum.Lessons;
 
 public class Manager
 {
-    public void command_ativation(String command)
+    public Lessons less;
+    Direction dir = new Direction();
+    public void check(String command){ //функция поиска совпадения c полями Enum
+        for (Lessons less : Lessons.values()){
+            if ((command.equals(less.getFullName()))||(command.equals(less.getShortName()))){
+                this.less = less;
+            }
+        }
+    }
+    public void activation(String command) //функция выполнения команд
     {
-        Team_development teams = new Team_development();  // Объект класса, реализующего функции команд
-        Lessons less = null;
-        if ((command.equals(Lessons.exit.getFullname())) || (command.equals(Lessons.exit.getReduction())))
+        try
         {
-            System.out.println(Lessons.exit.getExplanation());
-            teams.exit();
+            switch(less){
+                case EXIT:
+                    dir.getTeam(new Exit());
+                    break;
+                case HELP:
+                    dir.getTeam(new Help());
+                    break;
+            }
         }
-        else if ((command.equals(Lessons.help.getFullname())) || (command.equals(Lessons.help.getReduction())))
+        catch (Exception e)
         {
-            System.out.println(Lessons.help.getExplanation());
-            teams.help();
-        }
-        else
-        {
-            System.out.print("Error! '" + command + "' command not found!");
+            System.out.println("Error! '" + command + "' command not found!");
         }
     }
 }
