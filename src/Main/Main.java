@@ -14,8 +14,7 @@ public class Main {
         Scanner num = new Scanner(System.in);
         while (true) {
             String input = num.nextLine();
-            manager.check(input);
-            manager.activation(input);
+            manager.manage(input);
         }
     }
 }

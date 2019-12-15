@@ -1,31 +1,39 @@
 package Manager;
 
+import Command.implementation.Exit;
+import Command.implementation.Help;
 import Enum.Lessons;
 
-public class Manager {
-    public Lessons less;
-    Direction dir = new Direction();
+import java.util.Objects;
 
-    public void check(String command) { //функция поиска совпадения c полями Enum
-        for (Lessons less : Lessons.values()) {
-            if ((command.equals(less.getFullName())) || (command.equals(less.getShortName()))) {
-                this.less = less;
-            }
-        }
+public class Manager {
+
+    private static final String LESSON_NOT_FOUND = "команда не найдена";
+
+    private Exit exit;
+
+    private Help help;
+
+    public Manager() {
+        exit = new Exit();
+        help = new Help();
     }
 
-    public void activation(String command) { //функция выполнения команд
-        try {
-            switch (less) {
-                case EXIT:
-                    dir.getTeam(new Exit());
-                    break;
-                case HELP:
-                    dir.getTeam(new Help());
-                    break;
-            }
-        } catch (Exception e) {
-            System.out.println("Error! '" + command + "' command not found!");
+    public void manage(String input) {
+        Lessons lessons = Lessons.getValueByName(input);
+        if (Objects.isNull(lessons)) {
+            System.out.println(LESSON_NOT_FOUND);
+            return;
+        }
+
+        switch (lessons) {
+            case EXIT:
+                exit.run();
+                break;
+            case HELP:
+                help.run();
+                break;
+
         }
     }
 }
