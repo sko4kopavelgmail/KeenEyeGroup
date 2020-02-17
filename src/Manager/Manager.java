@@ -1,6 +1,8 @@
 package Manager;
 
 import Enum.Lessons;
+import Utils.DateUtils;
+
 public class Manager {
 
     public static void execute(String command) {
@@ -14,20 +16,27 @@ public class Manager {
                 case exit:
                     exit();
                     break;
+                case dateUtil:
+                    dateUtil();
+                    break;
             }
         } catch (IllegalArgumentException iae) {
-            // Unknown command
+            System.out.println("Unknown command. Use 'help' or '?' to view the available commands.");
         }
     }
 
     private static void help(){
-        Lessons[] data = Lessons.values();
-        for(int i = 0; i<data.length;i++)
-            System.out.println(data[i].getInfo());
+        for(Lessons lessons : Lessons.values())
+            System.out.println(lessons.getInfo());
     }
 
     private static void exit(){
         System.exit(0);
+    }
+
+    private static void dateUtil(){
+        DateUtils data = new DateUtils();
+        data.DateUtils();
     }
 
 }

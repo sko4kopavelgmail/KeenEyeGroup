@@ -1,8 +1,10 @@
 package Enum;
 
 public enum Lessons {
+    dateUtil("dateUtil","date","Команда 'dateUtil' или 'date' запускает приложение для работы с датой!"),
     help("help", "?", "Команда 'help' или '?' отображает список команд, а так же их назначение!"),
     exit("exit","ex", "Команда 'exit' или 'ex' закрывает консоль!");
+
 
     String Full_name,name,info;
     Lessons (String Full_name, String name, String info){
