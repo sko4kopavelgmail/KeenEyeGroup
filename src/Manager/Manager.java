@@ -11,7 +11,7 @@ public class Manager {
 
             switch (cname) {
                 case help:
-                    help ();
+                    help();
                     break;
                 case exit:
                     exit();
@@ -25,18 +25,17 @@ public class Manager {
         }
     }
 
-    private static void help(){
-        for(Lessons lessons : Lessons.values())
+    private static void help() {
+        for (Lessons lessons : Lessons.values())
             System.out.println(lessons.getInfo());
     }
 
-    private static void exit(){
+    private static void exit() {
         System.exit(0);
     }
 
-    private static void dateUtil(){
-        DateUtils data = new DateUtils();
-        data.DateUtils();
+    private static void dateUtil() {
+        DateUtils.dateUtils();
     }
 
 }
